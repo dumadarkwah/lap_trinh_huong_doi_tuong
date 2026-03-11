@@ -387,3 +387,42 @@ public:
 		cout << "Average Point: " << avgPoint() << endl;
 	}
 };
+
+
+#pragma once
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+class Transport {
+    string manufacturer;
+    string name;
+    int year;
+    int speed; 
+
+    public:
+    Transport() {}
+    Transport(string manufacturer, string name, int year, int speed) {
+        this->manufacturer = manufacturer;
+        this->name = name;
+        this->year = year;
+        this->speed = speed;
+    }
+
+    string getManufacturer() {
+        return manufacturer;
+    }
+    int getYear() {
+        return year = year;
+    }
+    int getSpeed() {
+        return speed;
+    }
+    void display() {
+        cout << "Manufacturer: " << manufacturer << endl;
+		cout << "Name: " << name << endl;
+		cout << "Year Of Manufacturer: " << year << endl;
+		cout << "Speed: " << speed << endl;
+	}
+};
