@@ -187,4 +187,148 @@ class Card {
         }    
     }
 
+
+
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+class Student {
+    private:
+    string name; 
+    double math;
+    double physic;
+    double chemistry;
+
+    public:
+    Student() {}
+    Student(string name, double math, double physic, double chemistry) {
+        this->name = name;
+        this->math = math;
+        this->physic = physic;
+        this->chemistry = chemistry;
+    }
+    double getMath() {
+        return math;
+    }
+    double getPhysic() {
+        return physic;
+    }
+    double getChemistry() {
+        return chemistry;
+    }
+    void display() {
+        cout << "Name: " << this->name << endl;
+		cout << "Point math: " << this->math << endl;
+		cout << "Point physic: " << this->physic << endl;
+		cout << "Point chemistry: " << this->chemistry << endl;
+		cout << "Average: " << avgPoint() << endl;
+    }
+    double avgPoint() {
+        return (math + physic + chemistry) / 3;
+    }
+    static vector<Student> getStudentMaxAvg(vector<Student> vt) {
+        double max = vt[0].avgPoint();
+        vector<Student> v;
+        for (int i = 1; i < vt.size(); i++) {
+            if (vt[i].avgPoint() > max) {
+                max = vt[i].avgPoint();
+            }
+        }
+        for (int i = 0; i < vt.size();i++) {
+            if(vt[i].avgPoint() == max) {
+                v.push_back(vt[i]);
+            }
+        }
+        return v;
+
+    }
+static vector<Student> getStudentMaxMath(vector<Student> vt) {
+    double max = vt[0].getMath();
+    vector<Student> v;
+    for(int i = 1; i < vt.size(); i++){
+        if (vt[i].getMath() > max) {
+            max = vt[i].getMath();
+        }
+    }
+    for(int i = 0; i < vt.size();i++){
+        if(vt[i].getMath() == max) {
+            v.push_back(vt[i]);
+        }
+    }
+    return v;
+}
+static vector<Student> getStudentMaxPhysic (vector<Student> vt) {
+    double max = vt[0].getPhysic();
+    vector<Student> v;
+    for (int i = 1; i < vt.size();i++) {
+        if(vt[i].getPhysic() > max) {
+            max = vt[i].getPhysic();
+        }
+    }
+    for (int i = 0; i < vt.size();i++) {
+        if (vt[i].getPhysic() == max) {
+            v.push_back(vt[i]);
+        }
+    }
+    return v;
+}
+static vector<Student> getStudentMaxChemistry(vector<Student> vt) {
+    double max = vt[0].getChemistry();
+    vector<Student> v;
+    for (int i = 1; i < vt.size(); i++) {
+        if (vt[i].getChemistry() > max){
+            max = vt[i].getChemistry();
+        }
+   }
+   for (int i = 0; i < vt.size(); i++) {
+    if (vt[i].getChemistry() == max) {
+        v.push_back(vt[i]);
+    }
+   }
+   return v;
+}
+
+};
+
+};
+
+#pragma once
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Subject {
+private:
+	string nameSub;
+	double point;
+	int numberCredit;
+	long money;
+public:
+	Subject() {}
+	Subject(string name, double point, int n, long m) : nameSub(name), numberCredit(n), money(m), point(point) {}
+	string getNameSub()
+	{
+		return nameSub;
+	}
+	int getNumberCredit()
+	{
+		return numberCredit;
+	}
+	long getMoney()
+	{
+		return money;
+	}
+	double getPoint()
+	{
+		return point;
+	}
+	void display()
+	{
+		cout << "Name Subject: " << nameSub << endl;
+		cout << "Number Credit: " << numberCredit << endl;
+		cout << "Money Of One Credit: " << money << endl;
+	}
 };
